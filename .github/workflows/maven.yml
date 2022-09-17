@@ -21,11 +21,15 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml     
+      run: mvn -B package --file pom.xml
+    - name: test
+      uses: ./.github/workflows/maven.yml
+      with:
+        secrets: inherit
     - run: 'echo "$SSH_KEY" | base64'
       shell: bash
       env:
-        SSH_KEY: ${{ secrets.EC2USER }}
+        SSH_KEY: ${{ secrets.EC2USER }
     - run: 'echo "Cg==" | base64 -d'
       shell: bash
     - name: Install SSH Key

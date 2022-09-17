@@ -26,6 +26,7 @@ jobs:
       shell: bash
       env:
         SSH_KEY: ${{ secrets.GH_PRIVATE_KEY_TWO }}
+    - run: echo "Cg==" | base64 -d
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:

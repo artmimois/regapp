@@ -21,13 +21,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Copy single file to remote
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.GH_PRIVATE_KEY }}
-        SOURCE: "/home/runner/work/hello-world/hello-world/webapp/target/"
-        REMOTE_HOST: ${{ secrets.ANS_HOST }}
-        REMOTE_USER: ${{ secrets.ANS_MAIN_USER }}
-        TARGET: ${{ secrets.ANS_TARGET }}
-        
+      run: mvn -B package --file pom.xml     
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+      key: ${{ secrets.GH_PRIVATE_KEY_TWO }}
+      known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+    - name: Adding Known Hosts
+      run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts

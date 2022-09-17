@@ -22,11 +22,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: test
+      run: echo "${{ secrets.ANS_TARGET }}"
     - name: Copy single file to remote
       uses: easingthemes/ssh-deploy@main
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.GH }}
+        SSH_PRIVATE_KEY: ${{ secrets.GH_PRIVATE_KEY }}
         SOURCE: "/home/runner/work/hello-world/hello-world/webapp/target/"
-        REMOTE_HOST: ${{ secrets.ANSIBLEHOST }}
-        REMOTE_USER: ${{ secrets.EC2USER }}
-        TARGET: ${{ secrets.WARTARGET }}
+        REMOTE_HOST: ${{ secrets.ANS_HOST }}
+        REMOTE_USER: ${{ secrets.ANS_MAIN_USER }}
+        TARGET: ${{ secrets.ANS_TARGET }}
+        

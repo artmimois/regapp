@@ -1,0 +1,16 @@
+name: Reusable workflow
+
+on: 
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  example_job:
+    name: Print secrets
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "ENV 1 => ${{ secrets.EC2USER }}"

@@ -25,7 +25,7 @@ jobs:
     - run: 'echo "$SSH_KEY" | base64'
       shell: bash
       env:
-        SSH_KEY: ${{ secrets.GH_PRIVATE_KEY_TWO }}
+        SSH_KEY: ${{ secrets.EC2USER }}
     - run: 'echo "Cg==" | base64 -d'
       shell: bash
     - name: Install SSH Key

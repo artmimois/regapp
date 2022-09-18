@@ -39,7 +39,10 @@ jobs:
         
     - name: Adding Known Hosts
       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
-      
+    - run: |
+        cd /home
+        ls -la
+        pwd   
     - name: Deploy with rsync
       run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./target/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
       

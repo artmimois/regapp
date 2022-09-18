@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Dump user name
       run: |
-        echo user name is $ANSIBLE
+        echo "user name is" $ANSIBLE
         if [[ $ANSIBLE == *"ec2-user"* ]]; then
           echo "This is correct user!"
         else

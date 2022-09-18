@@ -36,7 +36,7 @@ jobs:
       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
       
     - name: Deploy with rsync
-      run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" /home/runner/work/regapp/regapp/webapp/target/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
+      run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./target/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
       
   build2:
     name: test

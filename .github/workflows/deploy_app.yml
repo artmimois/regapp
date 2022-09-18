@@ -23,7 +23,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - run: mv /home/runner/work/regapp/regapp/webapp/target/webapp.war ~/home/
+    - run: mv /home/runner/work/regapp/regapp/webapp/target/webapp.war ./home/
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
     

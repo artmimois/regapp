@@ -47,4 +47,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          whoami
+          cd github/
+          rm -rf webapp/
+          tar -xf deploy.tar
+          sudo cp /home/ec2-user/github/webapp/target/webapp.war /opt/docker

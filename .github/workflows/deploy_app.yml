@@ -27,7 +27,7 @@ jobs:
       
   build2:
     name: test
-    uses: artmimois/regapp/.github/workflows/deploy_template.yml@main
+    uses: ./.github/workflows/deploy_template.yml
     with:
       environment: ANSIBLE
     secrets: inherit

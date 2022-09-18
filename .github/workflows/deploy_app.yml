@@ -28,8 +28,7 @@ jobs:
     uses: ./.github/workflows/deploy_template.yml
     with:
       environment: 'ANSIBLE'
-    secrets:  
-      ANS_MAIN_USER: ${{ secrets.ANS_MAIN_USER }}
+    secrets: inherit
 
 
 

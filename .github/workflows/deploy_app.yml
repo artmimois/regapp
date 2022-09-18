@@ -24,6 +24,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - run: sudo mv /home/runner/work/regapp/regapp/webapp/target/webapp.war /home
+    - run: |
+        cd /home
+        ll -la
+        pwd
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
     

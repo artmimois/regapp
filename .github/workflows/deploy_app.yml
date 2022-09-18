@@ -50,7 +50,9 @@ jobs:
         ls -la
         pwd   
     - name: Deploy with rsync
-      run: sudo rsync -avz -e ~/rsync/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
+      run: |
+        sudo su -
+        sudo rsync -avz -e ~/rsync/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
       
   build2:
     name: test

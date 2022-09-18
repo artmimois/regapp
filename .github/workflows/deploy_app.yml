@@ -28,7 +28,7 @@ jobs:
         ls -la
         pwd
         sudo mkdir rsync
-        sudo chomd 777 rsync
+        sudo chmod 777 rsync
         sudo mv /home/runner/work/regapp/regapp/webapp/target/webapp.war ~/rsync
     - run: |
         cd /home

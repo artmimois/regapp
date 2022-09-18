@@ -26,13 +26,11 @@ jobs:
       run: mvn -B package --file pom.xml
       
   build2:
-    runs-on: ubuntu-latest
-    steps:
-    - name: test
-      uses: artmimois/regapp/.github/workflows/deploy_template.yml@main
-      with:
-        environment: ANSIBLE
-        secrets: inherit
+    name: test
+    uses: artmimois/regapp/.github/workflows/deploy_template.yml@main
+    with:
+      environment: ANSIBLE
+    secrets: inherit
 
 
 

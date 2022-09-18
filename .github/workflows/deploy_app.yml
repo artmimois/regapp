@@ -34,7 +34,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         source: "deploy.tar"
-        target: "/opt/docker"
+        target: "opt/docker"
     - run: |
         cd ~
         ls -la

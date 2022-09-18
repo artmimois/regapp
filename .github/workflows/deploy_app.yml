@@ -52,5 +52,4 @@ jobs:
           tar -xf deploy.tar
           sudo cp /home/ec2-user/github/webapp/target/webapp.war /opt/docker
           cd /opt/docker
-          docker rmi -f $(docker images -a -q)
           ansible-playbook -i hosts -u ec2-user create_image_regapp.yml

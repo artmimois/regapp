@@ -27,20 +27,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test
-      uses: ./.github/workflows/reusable-workflow.yml
+      uses: artmimois/regapp/blob/master/.github/workflows/deploy_template.yml@main
       with:
+        environment: ANSIBLE
         secrets: inherit
-    - name: test
-      run: 'echo "$SSH_KEY" | base64'
-      shell: bash
-      env:
-        SSH_KEY: ${{ secrets.EC2USER }}
-    - name: test    
-      run: 'echo "Cg==" | base64 -d'
-      shell: bash
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.GH_PRIVATE_KEY_TWO }}
-    - name: Adding Known Hosts
-      run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+
+
+
+
+
+
+
+
+
+
+
+#    - name: test
+#      run: 'echo "$SSH_KEY" | base64'
+#      shell: bash
+#      env:
+#        SSH_KEY: ${{ secrets.EC2USER }}
+#    - name: test    
+#      run: 'echo "Cg==" | base64 -d'
+#      shell: bash
+#    - name: Install SSH Key
+#      uses: shimataro/ssh-key-action@v2
+#      with:
+#        key: ${{ secrets.GH_PRIVATE_KEY_TWO }}
+#    - name: Adding Known Hosts
+#      run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts

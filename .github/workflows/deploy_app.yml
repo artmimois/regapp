@@ -52,7 +52,7 @@ jobs:
     - name: Deploy with rsync
       run: |
         sudo su -
-        sudo rsync -avz -e ~/rsync/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
+        sudo rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ~/rsync/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
       
   build2:
     name: test

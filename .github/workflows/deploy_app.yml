@@ -35,13 +35,16 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         source: "deploy.tar"
         target: "github/"
-    - run: |
-        cd ~
-        ls -la
-        pwd
-        sudo mkdir rsync
-        sudo chmod 777 /home/runner/rsync
-        sudo mv /home/runner/work/regapp/regapp/webapp/target/webapp.war ~/rsync
+        name: Build
+        
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.MAIN_ANS_USER }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: whoami
     - run: |
         cd /home
         ls -la

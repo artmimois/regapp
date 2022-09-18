@@ -24,10 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run a multi-line script
-      run: |
-        mkdir ../build
-        cp -TR . ../build
-        tar -cvf deploy.tar ../build/
+      run: tar -cvf deploy.tar webapp/target/webapp.war
 
     - name: copy file via ssh password
       uses: appleboy/scp-action@master

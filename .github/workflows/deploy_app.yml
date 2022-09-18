@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test
-      uses: ./.github/workflows/deploy_template.yml@main
+      uses: ./.github/workflows/deploy_template.yml
       with:
         environment: ANSIBLE
         secrets: inherit

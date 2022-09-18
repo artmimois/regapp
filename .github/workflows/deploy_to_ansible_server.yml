@@ -1,0 +1,30 @@
+name: Deploy Template
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        description: environment to deploy to
+        required: true
+    secrets:
+      ANS_MAIN_USER:
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy to ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    
+    steps:
+    - name: Dump user name
+      run: |
+        echo "user name is" $ANSIBLE
+        if [[ $ANSIBLE == *"ec2-user"* ]]; then
+          echo "This is correct user!"
+        else
+          echo "This is NOT correct user!"
+        fi
+      env:
+        ANSIBLE: ${{ secrets.ANS_MAIN_USER }}

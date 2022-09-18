@@ -44,7 +44,7 @@ jobs:
         ls -la
         pwd   
     - name: Deploy with rsync
-      run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./target/ ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
+      run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" /home ${{ secrets.MAIN_ANS_USER }}@${{ secrets.SSH_HOST }}:/opt/docker  
       
   build2:
     name: test

@@ -53,3 +53,4 @@ jobs:
           sudo cp /home/ec2-user/github/webapp/target/webapp.war /opt/docker
           cd /opt/docker
           ansible-playbook -i hosts -u ec2-user create_image_regapp.yml
+          ansible-playbook -i hosts -u ec2-user kube_service_and_deploy.yml

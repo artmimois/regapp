@@ -1,1 +1,1 @@
-![linked-in_bg-2](https://user-images.githubusercontent.com/109166376/191755696-f7f17947-bb78-418c-9b2e-298d8960af24.png)
+![cv](https://user-images.githubusercontent.com/109166376/191759105-02748907-608b-4795-b902-c6f7f59fc184.png)
